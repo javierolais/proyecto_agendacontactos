@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hola</title>
+</head>
+
+<body>
+  <div class="row">
+<div class="panel panel-default">
+  <div class="panel-body" style="background-color: #A9D1F6; text-align: center; font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Agenda de Contactos</div>
+  <div class="panel-body" style="background-color: whitesmoke">
+    <form [formGroup]="agendaValidation">
+    <div style="position: relative; right: -10em;">
+    <table>
+      <td>
+      <label for="email">Nombre</label>
+      <input type="text" class="form-control" style="width: 200px;" id="email" formControlName="name" [(ngModel)]="nombre" autofocus>
+    </td>
+    <td>
+      <label for="pwd">Apellido paterno</label>
+      <input type="text" class="form-control" id="pwd" style="width: 200px;" formControlName="ape_paterno" [(ngModel)]="apellido_paterno">
+    </td>
+    <td>
+      <label for="pwd">Apellido materno</label>
+      <input type="text" class="form-control" id="pwd" style="width: 200px;" formControlName="ape_materno" [(ngModel)]="apellido_materno">
+    </td>
+    <td>
+      <label for="pwd">Correo electrónico</label>
+      <input type="text" class="form-control" id="pwd" style="width: 200px;" formControlName="email" [(ngModel)]="correo">
+    </td>
+    <td>
+      <label for="pwd">Calle</label>
+      <input type="text" class="form-control" id="pwd" style="width: 200px;" formControlName="street" [(ngModel)]="calle">
+  </td> 
+      </table>
+    </div>
+    <div style="position: relative; right: -10em;">
+      <table>
+        <td>
+      <label for="num_interior">Número interior</label>
+      <input type="text" class="form-control" id="num_interior" style="width: 200px;" formControlName="number" [(ngModel)]="numero_interior">
+    </td>
+    <td>
+      <label for="colonia">Colonia</label>
+      <input type="text" class="form-control" id="colonia" style="width: 200px;" formControlName="residencial" [(ngModel)]="colonia">
+    </td>
+    <td>
+      <label for="cod_postal">Código postal</label>
+      <input type="text" class="form-control" id="codigo" style="width: 200px;" formControlName="code_postal" [(ngModel)]="codigo_postal" maxLength="5">
+    </td>
+    <td>
+      <label for="tel">Teléfono</label>
+      <input type="text" class="form-control" id="telefono" style="width: 200px;" formControlName="tel" [(ngModel)]="telefono" maxLength="10">
+    </td>
+    </table>
+  </div>
+  <br>
+    <button type="submit" class="btn btn-primary" (click)="guardado()" style="position: relative; right: -47em; width: 200px" [disabled]="!agendaValidation.valid"> Guardar</button>
+  </form></div>
+</div>
+</div>
+
+<br>
+<br>
+<div class="row">
+<div class="panel panel-default">
+  <div class="panel-heading" style="background-color: #A9D1F6; text-align: center; font-family: Arial, Helvetica, sans-serif; font-weight: bold;">Registrados</div>
+  <div class="panel-body" style="background-color: whitesmoke">
+    <div class="container">
+      <h2>Contacto Registrados</h2>
+      <div class="table-responsive">          
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Clave</th>
+            <th>Nombre</th>
+            <th>Apellido paterno</th>
+            <th>Apellido materno</th>
+            <th>Correo electrónico</th>
+            <th>Calle</th>
+            <th>Número interior</th>
+            <th>Colonia</th>
+            <th>Código postal</th>
+            <th>Teléfono</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of todos">
+            <td>{{data.ID_Personaas}}</td>
+            <td>{{data.nombre}}</td>
+            <td>{{data.apellido_paterno}}</td>
+            <td>{{data.apellido_materno}}</td>
+            <td>{{data.correo_electronico}}</td>
+            <td>{{data.calle}}</td>
+            <td>{{data.numero_interior}}</td>
+            <td>{{data.colonia}}</td>
+            <td>{{data.codigo_postal}}</td>
+            <td>{{data.telefono}}</td>
+          </tr>
+        </tbody>
+        <button type="submit" class="btn btn-primary" (click)="recargar()" style="width: 200px; text-align: center; position: relative; right: -32.9em;">Recargar</button>
+      </table>
+      </div>
+    </div>
+    
+  </div>
+</div>
+</div>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
